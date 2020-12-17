@@ -79,6 +79,31 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="saveReading">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="blood_pressure" type="s:float" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="saveReadingResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="bpReminder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="bpReminderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="bpReminderResult" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="registerSoapIn">
@@ -105,6 +130,18 @@
   <wsdl:message name="view_infoSoapOut">
     <wsdl:part name="parameters" element="tns:view_infoResponse" />
   </wsdl:message>
+  <wsdl:message name="saveReadingSoapIn">
+    <wsdl:part name="parameters" element="tns:saveReading" />
+  </wsdl:message>
+  <wsdl:message name="saveReadingSoapOut">
+    <wsdl:part name="parameters" element="tns:saveReadingResponse" />
+  </wsdl:message>
+  <wsdl:message name="bpReminderSoapIn">
+    <wsdl:part name="parameters" element="tns:bpReminder" />
+  </wsdl:message>
+  <wsdl:message name="bpReminderSoapOut">
+    <wsdl:part name="parameters" element="tns:bpReminderResponse" />
+  </wsdl:message>
   <wsdl:portType name="WebService1Soap">
     <wsdl:operation name="register">
       <wsdl:input message="tns:registerSoapIn" />
@@ -121,6 +158,14 @@
     <wsdl:operation name="view_info">
       <wsdl:input message="tns:view_infoSoapIn" />
       <wsdl:output message="tns:view_infoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="saveReading">
+      <wsdl:input message="tns:saveReadingSoapIn" />
+      <wsdl:output message="tns:saveReadingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="bpReminder">
+      <wsdl:input message="tns:bpReminderSoapIn" />
+      <wsdl:output message="tns:bpReminderSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WebService1Soap" type="tns:WebService1Soap">
@@ -161,6 +206,24 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="saveReading">
+      <soap:operation soapAction="http://tempuri.org/saveReading" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="bpReminder">
+      <soap:operation soapAction="http://tempuri.org/bpReminder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="WebService1Soap12" type="tns:WebService1Soap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -193,6 +256,24 @@
     </wsdl:operation>
     <wsdl:operation name="view_info">
       <soap12:operation soapAction="http://tempuri.org/view_info" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="saveReading">
+      <soap12:operation soapAction="http://tempuri.org/saveReading" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="bpReminder">
+      <soap12:operation soapAction="http://tempuri.org/bpReminder" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

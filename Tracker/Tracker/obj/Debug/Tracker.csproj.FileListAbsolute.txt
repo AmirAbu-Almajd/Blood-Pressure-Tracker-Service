@@ -56,3 +56,4 @@ D:\Coding\Blood-Pressure-Tracker-Service\Tracker\Tracker\obj\Debug\Tracker.cspro
 D:\Coding\Blood-Pressure-Tracker-Service\Tracker\Tracker\obj\Debug\Tracker.csproj.CopyComplete
 D:\Coding\Blood-Pressure-Tracker-Service\Tracker\Tracker\obj\Debug\Tracker.dll
 D:\Coding\Blood-Pressure-Tracker-Service\Tracker\Tracker\obj\Debug\Tracker.pdb
+D:\Coding\Blood-Pressure-Tracker-Service\Tracker\Tracker\obj\Debug\Tracker.csprojAssemblyReference.cache

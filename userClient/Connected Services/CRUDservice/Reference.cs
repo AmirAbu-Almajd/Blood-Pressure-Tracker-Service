@@ -40,6 +40,18 @@ namespace userClient.CRUDservice {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/view_info", ReplyAction="*")]
         System.Threading.Tasks.Task<userClient.CRUDservice.view_infoResponse> view_infoAsync(userClient.CRUDservice.view_infoRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/saveReading", ReplyAction="*")]
+        void saveReading(int id, float blood_pressure);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/saveReading", ReplyAction="*")]
+        System.Threading.Tasks.Task saveReadingAsync(int id, float blood_pressure);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/bpReminder", ReplyAction="*")]
+        System.DateTime bpReminder(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/bpReminder", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.DateTime> bpReminderAsync(int id);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -582,6 +594,22 @@ namespace userClient.CRUDservice {
             inValue.Body.username = username;
             inValue.Body.password = password;
             return ((userClient.CRUDservice.WebService1Soap)(this)).view_infoAsync(inValue);
+        }
+        
+        public void saveReading(int id, float blood_pressure) {
+            base.Channel.saveReading(id, blood_pressure);
+        }
+        
+        public System.Threading.Tasks.Task saveReadingAsync(int id, float blood_pressure) {
+            return base.Channel.saveReadingAsync(id, blood_pressure);
+        }
+        
+        public System.DateTime bpReminder(int id) {
+            return base.Channel.bpReminder(id);
+        }
+        
+        public System.Threading.Tasks.Task<System.DateTime> bpReminderAsync(int id) {
+            return base.Channel.bpReminderAsync(id);
         }
     }
 }

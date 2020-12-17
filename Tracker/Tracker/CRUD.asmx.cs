@@ -22,6 +22,7 @@ namespace Tracker
             , string username, string password)
         {
             con.Open();
+            DateTime d = DateTime.Now;
             SqlCommand cmd = new SqlCommand("insert into dbo.users(name,gender,age,weight,bloodPressure,username,password)" +
                 " values(@name,@gender,@age,@weight,@blood_pressure,@username,@password)", con);
 
@@ -39,6 +40,23 @@ namespace Tracker
             cmd.Parameters.Add(p5);
             cmd.Parameters.Add(p6);
             cmd.Parameters.Add(p7);
+            cmd.ExecuteNonQuery();
+            cmd = new SqlCommand("select id from dbo.users where username=@username;", con);
+            cmd.Parameters.Add(new SqlParameter("@username", username));
+            int id = 0;
+            SqlDataReader reader = cmd.ExecuteReader();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    id = reader.GetInt32(0);
+                }
+            }
+            reader.Close();
+            cmd=new SqlCommand("insert into dbo.readings (id , bloodPressure,date) values (@id,@blood_pressure,@d);", con);
+            cmd.Parameters.Add(new SqlParameter("@id", id));
+            cmd.Parameters.Add(new SqlParameter("@blood_pressure", blood_pressure));
+            cmd.Parameters.Add(new SqlParameter("@d", d));
             cmd.ExecuteNonQuery();
             con.Close();
         }
@@ -117,6 +135,43 @@ namespace Tracker
 
             }
             con.Close();
+        }
+
+        [WebMethod]
+        public void saveReading(int id, float blood_pressure)
+        {
+            con.Open();
+            DateTime d = DateTime.Now;
+            SqlCommand cmd = new SqlCommand("insert into dbo.readings (id , bloodPressure,date) values (@id,@blood_pressure,@d);", con);
+            cmd.Parameters.Add(new SqlParameter("@id", id));
+            cmd.Parameters.Add(new SqlParameter("@blood_pressure", blood_pressure));
+            cmd.Parameters.Add(new SqlParameter("@d", d));
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
+        [WebMethod]
+        public DateTime bpReminder(int id)
+        {
+            con.Open();
+            DateTime d = DateTime.Now;
+            DateTime received = DateTime.Now;
+            SqlCommand cmd = new SqlCommand("select max(date) from dbo.readings where id=@id;", con);
+            cmd.Parameters.Add(new SqlParameter("@id", id));
+            SqlDataReader reader = cmd.ExecuteReader();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    received = reader.GetDateTime(0);
+                }
+            }
+            TimeSpan temp = new TimeSpan(0, 0, 20, 0);
+            if (d.Subtract(received) > temp)
+            {
+                return received;
+            }
+            DateTime fault = new DateTime(2001, 1, 1);
+            return fault;
         }
     }
 }

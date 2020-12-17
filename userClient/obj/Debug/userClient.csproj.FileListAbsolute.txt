@@ -56,3 +56,4 @@ D:\Coding\Blood-Pressure-Tracker-Service\userClient\obj\Debug\userClient.csproj.
 D:\Coding\Blood-Pressure-Tracker-Service\userClient\obj\Debug\userClient.csproj.CopyComplete
 D:\Coding\Blood-Pressure-Tracker-Service\userClient\obj\Debug\userClient.dll
 D:\Coding\Blood-Pressure-Tracker-Service\userClient\obj\Debug\userClient.pdb
+D:\Coding\Blood-Pressure-Tracker-Service\userClient\obj\Debug\userClient.csprojAssemblyReference.cache
