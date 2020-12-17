@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="register">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="gender" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="age" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="weight" type="s:float" />
+            <s:element minOccurs="1" maxOccurs="1" name="blood_pressure" type="s:float" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="registerResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="login">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="loginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="loginResult" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="update_info">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="gender" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="age" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="weight" type="s:float" />
+            <s:element minOccurs="1" maxOccurs="1" name="blood_pressure" type="s:float" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="update_infoResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="view_info">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="gender" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="age" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="weight" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="blood_pressure" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="view_infoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="gender" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="age" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="weight" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="blood_pressure" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="registerSoapIn">
+    <wsdl:part name="parameters" element="tns:register" />
+  </wsdl:message>
+  <wsdl:message name="registerSoapOut">
+    <wsdl:part name="parameters" element="tns:registerResponse" />
+  </wsdl:message>
+  <wsdl:message name="loginSoapIn">
+    <wsdl:part name="parameters" element="tns:login" />
+  </wsdl:message>
+  <wsdl:message name="loginSoapOut">
+    <wsdl:part name="parameters" element="tns:loginResponse" />
+  </wsdl:message>
+  <wsdl:message name="update_infoSoapIn">
+    <wsdl:part name="parameters" element="tns:update_info" />
+  </wsdl:message>
+  <wsdl:message name="update_infoSoapOut">
+    <wsdl:part name="parameters" element="tns:update_infoResponse" />
+  </wsdl:message>
+  <wsdl:message name="view_infoSoapIn">
+    <wsdl:part name="parameters" element="tns:view_info" />
+  </wsdl:message>
+  <wsdl:message name="view_infoSoapOut">
+    <wsdl:part name="parameters" element="tns:view_infoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WebService1Soap">
+    <wsdl:operation name="register">
+      <wsdl:input message="tns:registerSoapIn" />
+      <wsdl:output message="tns:registerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="login">
+      <wsdl:input message="tns:loginSoapIn" />
+      <wsdl:output message="tns:loginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="update_info">
+      <wsdl:input message="tns:update_infoSoapIn" />
+      <wsdl:output message="tns:update_infoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="view_info">
+      <wsdl:input message="tns:view_infoSoapIn" />
+      <wsdl:output message="tns:view_infoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebService1Soap" type="tns:WebService1Soap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="register">
+      <soap:operation soapAction="http://tempuri.org/register" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="login">
+      <soap:operation soapAction="http://tempuri.org/login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="update_info">
+      <soap:operation soapAction="http://tempuri.org/update_info" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="view_info">
+      <soap:operation soapAction="http://tempuri.org/view_info" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebService1Soap12" type="tns:WebService1Soap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="register">
+      <soap12:operation soapAction="http://tempuri.org/register" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="login">
+      <soap12:operation soapAction="http://tempuri.org/login" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="update_info">
+      <soap12:operation soapAction="http://tempuri.org/update_info" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="view_info">
+      <soap12:operation soapAction="http://tempuri.org/view_info" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebService1">
+    <wsdl:port name="WebService1Soap" binding="tns:WebService1Soap">
+      <soap:address location="https://localhost:44385/CRUD.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebService1Soap12" binding="tns:WebService1Soap12">
+      <soap12:address location="https://localhost:44385/CRUD.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,5 +1,5 @@
-D:\Coding\Blood-Pressure-Tracker-Service\Tracker\Tracker\obj\Debug\Tracker.csprojAssemblyReference.cache
-D:\Coding\Blood-Pressure-Tracker-Service\Tracker\Tracker\obj\Debug\Tracker.csproj.CoreCompileInputs.cache
+D:\Coding\Blood-Pressure-Tracker-Service\Tracker\Tracker\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Coding\Blood-Pressure-Tracker-Service\Tracker\Tracker\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
 D:\Coding\Blood-Pressure-Tracker-Service\Tracker\Tracker\bin\Tracker.dll.config
 D:\Coding\Blood-Pressure-Tracker-Service\Tracker\Tracker\bin\Tracker.dll
 D:\Coding\Blood-Pressure-Tracker-Service\Tracker\Tracker\bin\Tracker.pdb
@@ -12,11 +12,9 @@ D:\Coding\Blood-Pressure-Tracker-Service\Tracker\Tracker\bin\roslyn\csi.rsp
 D:\Coding\Blood-Pressure-Tracker-Service\Tracker\Tracker\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
 D:\Coding\Blood-Pressure-Tracker-Service\Tracker\Tracker\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
 D:\Coding\Blood-Pressure-Tracker-Service\Tracker\Tracker\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
-D:\Coding\Blood-Pressure-Tracker-Service\Tracker\Tracker\bin\roslyn\Microsoft.CodeAnalysis.dll
 D:\Coding\Blood-Pressure-Tracker-Service\Tracker\Tracker\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
 D:\Coding\Blood-Pressure-Tracker-Service\Tracker\Tracker\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
 D:\Coding\Blood-Pressure-Tracker-Service\Tracker\Tracker\bin\roslyn\Microsoft.CSharp.Core.targets
-D:\Coding\Blood-Pressure-Tracker-Service\Tracker\Tracker\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
 D:\Coding\Blood-Pressure-Tracker-Service\Tracker\Tracker\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
 D:\Coding\Blood-Pressure-Tracker-Service\Tracker\Tracker\bin\roslyn\Microsoft.Managed.Core.targets
 D:\Coding\Blood-Pressure-Tracker-Service\Tracker\Tracker\bin\roslyn\Microsoft.VisualBasic.Core.targets
@@ -54,6 +52,7 @@ D:\Coding\Blood-Pressure-Tracker-Service\Tracker\Tracker\bin\roslyn\VBCSCompiler
 D:\Coding\Blood-Pressure-Tracker-Service\Tracker\Tracker\bin\roslyn\VBCSCompiler.exe.config
 D:\Coding\Blood-Pressure-Tracker-Service\Tracker\Tracker\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 D:\Coding\Blood-Pressure-Tracker-Service\Tracker\Tracker\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Coding\Blood-Pressure-Tracker-Service\Tracker\Tracker\obj\Debug\Tracker.csproj.CoreCompileInputs.cache
 D:\Coding\Blood-Pressure-Tracker-Service\Tracker\Tracker\obj\Debug\Tracker.csproj.CopyComplete
 D:\Coding\Blood-Pressure-Tracker-Service\Tracker\Tracker\obj\Debug\Tracker.dll
 D:\Coding\Blood-Pressure-Tracker-Service\Tracker\Tracker\obj\Debug\Tracker.pdb
