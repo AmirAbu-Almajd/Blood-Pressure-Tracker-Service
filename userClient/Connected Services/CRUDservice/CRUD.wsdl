@@ -104,6 +104,27 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="graphPlotting">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="graphPlottingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="graphPlottingResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="registerSoapIn">
@@ -142,6 +163,12 @@
   <wsdl:message name="bpReminderSoapOut">
     <wsdl:part name="parameters" element="tns:bpReminderResponse" />
   </wsdl:message>
+  <wsdl:message name="graphPlottingSoapIn">
+    <wsdl:part name="parameters" element="tns:graphPlotting" />
+  </wsdl:message>
+  <wsdl:message name="graphPlottingSoapOut">
+    <wsdl:part name="parameters" element="tns:graphPlottingResponse" />
+  </wsdl:message>
   <wsdl:portType name="WebService1Soap">
     <wsdl:operation name="register">
       <wsdl:input message="tns:registerSoapIn" />
@@ -166,6 +193,10 @@
     <wsdl:operation name="bpReminder">
       <wsdl:input message="tns:bpReminderSoapIn" />
       <wsdl:output message="tns:bpReminderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="graphPlotting">
+      <wsdl:input message="tns:graphPlottingSoapIn" />
+      <wsdl:output message="tns:graphPlottingSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WebService1Soap" type="tns:WebService1Soap">
@@ -224,6 +255,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="graphPlotting">
+      <soap:operation soapAction="http://tempuri.org/graphPlotting" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="WebService1Soap12" type="tns:WebService1Soap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -274,6 +314,15 @@
     </wsdl:operation>
     <wsdl:operation name="bpReminder">
       <soap12:operation soapAction="http://tempuri.org/bpReminder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="graphPlotting">
+      <soap12:operation soapAction="http://tempuri.org/graphPlotting" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

@@ -9,170 +9,83 @@
 //------------------------------------------------------------------------------
 
 namespace userClient.CRUDservice {
+    using System.Data;
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="CRUDservice.WebService1Soap")]
     public interface WebService1Soap {
         
-        // CODEGEN: Generating message contract since element name name from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/register", ReplyAction="*")]
-        userClient.CRUDservice.registerResponse register(userClient.CRUDservice.registerRequest request);
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        void register(string name, string gender, int age, float weight, float blood_pressure, string username, string password);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/register", ReplyAction="*")]
-        System.Threading.Tasks.Task<userClient.CRUDservice.registerResponse> registerAsync(userClient.CRUDservice.registerRequest request);
+        System.Threading.Tasks.Task registerAsync(string name, string gender, int age, float weight, float blood_pressure, string username, string password);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/login", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         userClient.CRUDservice.loginResponse login(userClient.CRUDservice.loginRequest request);
         
+        // CODEGEN: Generating message contract since the operation has multiple return values.
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/login", ReplyAction="*")]
         System.Threading.Tasks.Task<userClient.CRUDservice.loginResponse> loginAsync(userClient.CRUDservice.loginRequest request);
         
-        // CODEGEN: Generating message contract since element name name from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/update_info", ReplyAction="*")]
-        userClient.CRUDservice.update_infoResponse update_info(userClient.CRUDservice.update_infoRequest request);
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        void update_info(int id, string name, string gender, int age, float weight, float blood_pressure, string username, string password);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/update_info", ReplyAction="*")]
-        System.Threading.Tasks.Task<userClient.CRUDservice.update_infoResponse> update_infoAsync(userClient.CRUDservice.update_infoRequest request);
+        System.Threading.Tasks.Task update_infoAsync(int id, string name, string gender, int age, float weight, float blood_pressure, string username, string password);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/view_info", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         userClient.CRUDservice.view_infoResponse view_info(userClient.CRUDservice.view_infoRequest request);
         
+        // CODEGEN: Generating message contract since the operation has multiple return values.
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/view_info", ReplyAction="*")]
         System.Threading.Tasks.Task<userClient.CRUDservice.view_infoResponse> view_infoAsync(userClient.CRUDservice.view_infoRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/saveReading", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         void saveReading(int id, float blood_pressure);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/saveReading", ReplyAction="*")]
         System.Threading.Tasks.Task saveReadingAsync(int id, float blood_pressure);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/bpReminder", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         System.DateTime bpReminder(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/bpReminder", ReplyAction="*")]
         System.Threading.Tasks.Task<System.DateTime> bpReminderAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/graphPlotting", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet graphPlotting(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/graphPlotting", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataSet> graphPlottingAsync(int id);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class registerRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="register", Namespace="http://tempuri.org/", Order=0)]
-        public userClient.CRUDservice.registerRequestBody Body;
-        
-        public registerRequest() {
-        }
-        
-        public registerRequest(userClient.CRUDservice.registerRequestBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class registerRequestBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string name;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
-        public string gender;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
-        public int age;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
-        public float weight;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=4)]
-        public float blood_pressure;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=5)]
-        public string username;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=6)]
-        public string password;
-        
-        public registerRequestBody() {
-        }
-        
-        public registerRequestBody(string name, string gender, int age, float weight, float blood_pressure, string username, string password) {
-            this.name = name;
-            this.gender = gender;
-            this.age = age;
-            this.weight = weight;
-            this.blood_pressure = blood_pressure;
-            this.username = username;
-            this.password = password;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class registerResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="registerResponse", Namespace="http://tempuri.org/", Order=0)]
-        public userClient.CRUDservice.registerResponseBody Body;
-        
-        public registerResponse() {
-        }
-        
-        public registerResponse(userClient.CRUDservice.registerResponseBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute()]
-    public partial class registerResponseBody {
-        
-        public registerResponseBody() {
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="login", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
     public partial class loginRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="login", Namespace="http://tempuri.org/", Order=0)]
-        public userClient.CRUDservice.loginRequestBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public int id;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public string username;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
+        public string password;
         
         public loginRequest() {
         }
         
-        public loginRequest(userClient.CRUDservice.loginRequestBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class loginRequestBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
-        public int id;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
-        public string username;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
-        public string password;
-        
-        public loginRequestBody() {
-        }
-        
-        public loginRequestBody(int id, string username, string password) {
+        public loginRequest(int id, string username, string password) {
             this.id = id;
             this.username = username;
             this.password = password;
@@ -181,35 +94,19 @@ namespace userClient.CRUDservice {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="loginResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
     public partial class loginResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="loginResponse", Namespace="http://tempuri.org/", Order=0)]
-        public userClient.CRUDservice.loginResponseBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public bool loginResult;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public int id;
         
         public loginResponse() {
         }
         
-        public loginResponse(userClient.CRUDservice.loginResponseBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class loginResponseBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
-        public bool loginResult;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
-        public int id;
-        
-        public loginResponseBody() {
-        }
-        
-        public loginResponseBody(bool loginResult, int id) {
+        public loginResponse(bool loginResult, int id) {
             this.loginResult = loginResult;
             this.id = id;
         }
@@ -217,142 +114,37 @@ namespace userClient.CRUDservice {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class update_infoRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="update_info", Namespace="http://tempuri.org/", Order=0)]
-        public userClient.CRUDservice.update_infoRequestBody Body;
-        
-        public update_infoRequest() {
-        }
-        
-        public update_infoRequest(userClient.CRUDservice.update_infoRequestBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class update_infoRequestBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
-        public int id;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
-        public string name;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
-        public string gender;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
-        public int age;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=4)]
-        public float weight;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=5)]
-        public float blood_pressure;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=6)]
-        public string username;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=7)]
-        public string password;
-        
-        public update_infoRequestBody() {
-        }
-        
-        public update_infoRequestBody(int id, string name, string gender, int age, float weight, float blood_pressure, string username, string password) {
-            this.id = id;
-            this.name = name;
-            this.gender = gender;
-            this.age = age;
-            this.weight = weight;
-            this.blood_pressure = blood_pressure;
-            this.username = username;
-            this.password = password;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class update_infoResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="update_infoResponse", Namespace="http://tempuri.org/", Order=0)]
-        public userClient.CRUDservice.update_infoResponseBody Body;
-        
-        public update_infoResponse() {
-        }
-        
-        public update_infoResponse(userClient.CRUDservice.update_infoResponseBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute()]
-    public partial class update_infoResponseBody {
-        
-        public update_infoResponseBody() {
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="view_info", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
     public partial class view_infoRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="view_info", Namespace="http://tempuri.org/", Order=0)]
-        public userClient.CRUDservice.view_infoRequestBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public int id;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public string name;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
+        public string gender;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=3)]
+        public int age;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=4)]
+        public double weight;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=5)]
+        public double blood_pressure;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=6)]
+        public string username;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=7)]
+        public string password;
         
         public view_infoRequest() {
         }
         
-        public view_infoRequest(userClient.CRUDservice.view_infoRequestBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class view_infoRequestBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
-        public int id;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
-        public string name;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
-        public string gender;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
-        public int age;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=4)]
-        public double weight;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=5)]
-        public double blood_pressure;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=6)]
-        public string username;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=7)]
-        public string password;
-        
-        public view_infoRequestBody() {
-        }
-        
-        public view_infoRequestBody(int id, string name, string gender, int age, double weight, double blood_pressure, string username, string password) {
+        public view_infoRequest(int id, string name, string gender, int age, double weight, double blood_pressure, string username, string password) {
             this.id = id;
             this.name = name;
             this.gender = gender;
@@ -366,50 +158,34 @@ namespace userClient.CRUDservice {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="view_infoResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
     public partial class view_infoResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="view_infoResponse", Namespace="http://tempuri.org/", Order=0)]
-        public userClient.CRUDservice.view_infoResponseBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public string name;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public string gender;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
+        public int age;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=3)]
+        public double weight;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=4)]
+        public double blood_pressure;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=5)]
+        public string username;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=6)]
+        public string password;
         
         public view_infoResponse() {
         }
         
-        public view_infoResponse(userClient.CRUDservice.view_infoResponseBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class view_infoResponseBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string name;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
-        public string gender;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
-        public int age;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
-        public double weight;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=4)]
-        public double blood_pressure;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=5)]
-        public string username;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=6)]
-        public string password;
-        
-        public view_infoResponseBody() {
-        }
-        
-        public view_infoResponseBody(string name, string gender, int age, double weight, double blood_pressure, string username, string password) {
+        public view_infoResponse(string name, string gender, int age, double weight, double blood_pressure, string username, string password) {
             this.name = name;
             this.gender = gender;
             this.age = age;
@@ -447,40 +223,12 @@ namespace userClient.CRUDservice {
                 base(binding, remoteAddress) {
         }
         
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        userClient.CRUDservice.registerResponse userClient.CRUDservice.WebService1Soap.register(userClient.CRUDservice.registerRequest request) {
-            return base.Channel.register(request);
-        }
-        
         public void register(string name, string gender, int age, float weight, float blood_pressure, string username, string password) {
-            userClient.CRUDservice.registerRequest inValue = new userClient.CRUDservice.registerRequest();
-            inValue.Body = new userClient.CRUDservice.registerRequestBody();
-            inValue.Body.name = name;
-            inValue.Body.gender = gender;
-            inValue.Body.age = age;
-            inValue.Body.weight = weight;
-            inValue.Body.blood_pressure = blood_pressure;
-            inValue.Body.username = username;
-            inValue.Body.password = password;
-            userClient.CRUDservice.registerResponse retVal = ((userClient.CRUDservice.WebService1Soap)(this)).register(inValue);
+            base.Channel.register(name, gender, age, weight, blood_pressure, username, password);
         }
         
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<userClient.CRUDservice.registerResponse> userClient.CRUDservice.WebService1Soap.registerAsync(userClient.CRUDservice.registerRequest request) {
-            return base.Channel.registerAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<userClient.CRUDservice.registerResponse> registerAsync(string name, string gender, int age, float weight, float blood_pressure, string username, string password) {
-            userClient.CRUDservice.registerRequest inValue = new userClient.CRUDservice.registerRequest();
-            inValue.Body = new userClient.CRUDservice.registerRequestBody();
-            inValue.Body.name = name;
-            inValue.Body.gender = gender;
-            inValue.Body.age = age;
-            inValue.Body.weight = weight;
-            inValue.Body.blood_pressure = blood_pressure;
-            inValue.Body.username = username;
-            inValue.Body.password = password;
-            return ((userClient.CRUDservice.WebService1Soap)(this)).registerAsync(inValue);
+        public System.Threading.Tasks.Task registerAsync(string name, string gender, int age, float weight, float blood_pressure, string username, string password) {
+            return base.Channel.registerAsync(name, gender, age, weight, blood_pressure, username, password);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -490,65 +238,24 @@ namespace userClient.CRUDservice {
         
         public bool login(ref int id, string username, string password) {
             userClient.CRUDservice.loginRequest inValue = new userClient.CRUDservice.loginRequest();
-            inValue.Body = new userClient.CRUDservice.loginRequestBody();
-            inValue.Body.id = id;
-            inValue.Body.username = username;
-            inValue.Body.password = password;
+            inValue.id = id;
+            inValue.username = username;
+            inValue.password = password;
             userClient.CRUDservice.loginResponse retVal = ((userClient.CRUDservice.WebService1Soap)(this)).login(inValue);
-            id = retVal.Body.id;
-            return retVal.Body.loginResult;
+            id = retVal.id;
+            return retVal.loginResult;
         }
         
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<userClient.CRUDservice.loginResponse> userClient.CRUDservice.WebService1Soap.loginAsync(userClient.CRUDservice.loginRequest request) {
+        public System.Threading.Tasks.Task<userClient.CRUDservice.loginResponse> loginAsync(userClient.CRUDservice.loginRequest request) {
             return base.Channel.loginAsync(request);
         }
         
-        public System.Threading.Tasks.Task<userClient.CRUDservice.loginResponse> loginAsync(int id, string username, string password) {
-            userClient.CRUDservice.loginRequest inValue = new userClient.CRUDservice.loginRequest();
-            inValue.Body = new userClient.CRUDservice.loginRequestBody();
-            inValue.Body.id = id;
-            inValue.Body.username = username;
-            inValue.Body.password = password;
-            return ((userClient.CRUDservice.WebService1Soap)(this)).loginAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        userClient.CRUDservice.update_infoResponse userClient.CRUDservice.WebService1Soap.update_info(userClient.CRUDservice.update_infoRequest request) {
-            return base.Channel.update_info(request);
-        }
-        
         public void update_info(int id, string name, string gender, int age, float weight, float blood_pressure, string username, string password) {
-            userClient.CRUDservice.update_infoRequest inValue = new userClient.CRUDservice.update_infoRequest();
-            inValue.Body = new userClient.CRUDservice.update_infoRequestBody();
-            inValue.Body.id = id;
-            inValue.Body.name = name;
-            inValue.Body.gender = gender;
-            inValue.Body.age = age;
-            inValue.Body.weight = weight;
-            inValue.Body.blood_pressure = blood_pressure;
-            inValue.Body.username = username;
-            inValue.Body.password = password;
-            userClient.CRUDservice.update_infoResponse retVal = ((userClient.CRUDservice.WebService1Soap)(this)).update_info(inValue);
+            base.Channel.update_info(id, name, gender, age, weight, blood_pressure, username, password);
         }
         
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<userClient.CRUDservice.update_infoResponse> userClient.CRUDservice.WebService1Soap.update_infoAsync(userClient.CRUDservice.update_infoRequest request) {
-            return base.Channel.update_infoAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<userClient.CRUDservice.update_infoResponse> update_infoAsync(int id, string name, string gender, int age, float weight, float blood_pressure, string username, string password) {
-            userClient.CRUDservice.update_infoRequest inValue = new userClient.CRUDservice.update_infoRequest();
-            inValue.Body = new userClient.CRUDservice.update_infoRequestBody();
-            inValue.Body.id = id;
-            inValue.Body.name = name;
-            inValue.Body.gender = gender;
-            inValue.Body.age = age;
-            inValue.Body.weight = weight;
-            inValue.Body.blood_pressure = blood_pressure;
-            inValue.Body.username = username;
-            inValue.Body.password = password;
-            return ((userClient.CRUDservice.WebService1Soap)(this)).update_infoAsync(inValue);
+        public System.Threading.Tasks.Task update_infoAsync(int id, string name, string gender, int age, float weight, float blood_pressure, string username, string password) {
+            return base.Channel.update_infoAsync(id, name, gender, age, weight, blood_pressure, username, password);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -558,42 +265,26 @@ namespace userClient.CRUDservice {
         
         public void view_info(int id, ref string name, ref string gender, ref int age, ref double weight, ref double blood_pressure, ref string username, ref string password) {
             userClient.CRUDservice.view_infoRequest inValue = new userClient.CRUDservice.view_infoRequest();
-            inValue.Body = new userClient.CRUDservice.view_infoRequestBody();
-            inValue.Body.id = id;
-            inValue.Body.name = name;
-            inValue.Body.gender = gender;
-            inValue.Body.age = age;
-            inValue.Body.weight = weight;
-            inValue.Body.blood_pressure = blood_pressure;
-            inValue.Body.username = username;
-            inValue.Body.password = password;
+            inValue.id = id;
+            inValue.name = name;
+            inValue.gender = gender;
+            inValue.age = age;
+            inValue.weight = weight;
+            inValue.blood_pressure = blood_pressure;
+            inValue.username = username;
+            inValue.password = password;
             userClient.CRUDservice.view_infoResponse retVal = ((userClient.CRUDservice.WebService1Soap)(this)).view_info(inValue);
-            name = retVal.Body.name;
-            gender = retVal.Body.gender;
-            age = retVal.Body.age;
-            weight = retVal.Body.weight;
-            blood_pressure = retVal.Body.blood_pressure;
-            username = retVal.Body.username;
-            password = retVal.Body.password;
+            name = retVal.name;
+            gender = retVal.gender;
+            age = retVal.age;
+            weight = retVal.weight;
+            blood_pressure = retVal.blood_pressure;
+            username = retVal.username;
+            password = retVal.password;
         }
         
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<userClient.CRUDservice.view_infoResponse> userClient.CRUDservice.WebService1Soap.view_infoAsync(userClient.CRUDservice.view_infoRequest request) {
+        public System.Threading.Tasks.Task<userClient.CRUDservice.view_infoResponse> view_infoAsync(userClient.CRUDservice.view_infoRequest request) {
             return base.Channel.view_infoAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<userClient.CRUDservice.view_infoResponse> view_infoAsync(int id, string name, string gender, int age, double weight, double blood_pressure, string username, string password) {
-            userClient.CRUDservice.view_infoRequest inValue = new userClient.CRUDservice.view_infoRequest();
-            inValue.Body = new userClient.CRUDservice.view_infoRequestBody();
-            inValue.Body.id = id;
-            inValue.Body.name = name;
-            inValue.Body.gender = gender;
-            inValue.Body.age = age;
-            inValue.Body.weight = weight;
-            inValue.Body.blood_pressure = blood_pressure;
-            inValue.Body.username = username;
-            inValue.Body.password = password;
-            return ((userClient.CRUDservice.WebService1Soap)(this)).view_infoAsync(inValue);
         }
         
         public void saveReading(int id, float blood_pressure) {
@@ -610,6 +301,14 @@ namespace userClient.CRUDservice {
         
         public System.Threading.Tasks.Task<System.DateTime> bpReminderAsync(int id) {
             return base.Channel.bpReminderAsync(id);
+        }
+        
+        public System.Data.DataSet graphPlotting(int id) {
+            return base.Channel.graphPlotting(id);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataSet> graphPlottingAsync(int id) {
+            return base.Channel.graphPlottingAsync(id);
         }
     }
 }

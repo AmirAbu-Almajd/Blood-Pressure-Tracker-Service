@@ -4,6 +4,10 @@ using System.Linq;
 using System.Web;
 using System.Web.Services;
 using System.Data.SqlClient;
+using System.Web.UI.DataVisualization.Charting;
+using System.Data;
+using System.Data.SqlClient;
+using System.Configuration;
 namespace Tracker
 {
     /// <summary>
@@ -142,7 +146,7 @@ namespace Tracker
         {
             con.Open();
             DateTime d = DateTime.Now;
-            SqlCommand cmd = new SqlCommand("insert into dbo.readings (id , bloodPressure,date) values (@id,@blood_pressure,@d);", con);
+            SqlCommand cmd = new SqlCommand("insert into dbo.readings (id , bloodPressure,readingDate) values (@id,@blood_pressure,@d);", con);
             cmd.Parameters.Add(new SqlParameter("@id", id));
             cmd.Parameters.Add(new SqlParameter("@blood_pressure", blood_pressure));
             cmd.Parameters.Add(new SqlParameter("@d", d));
@@ -155,7 +159,7 @@ namespace Tracker
             con.Open();
             DateTime d = DateTime.Now;
             DateTime received = DateTime.Now;
-            SqlCommand cmd = new SqlCommand("select max(date) from dbo.readings where id=@id;", con);
+            SqlCommand cmd = new SqlCommand("select max(readingDate) from dbo.readings where id=@id;", con);
             cmd.Parameters.Add(new SqlParameter("@id", id));
             SqlDataReader reader = cmd.ExecuteReader();
             if (reader.HasRows)
@@ -165,6 +169,7 @@ namespace Tracker
                     received = reader.GetDateTime(0);
                 }
             }
+            con.Close();
             TimeSpan temp = new TimeSpan(0, 0, 20, 0);
             if (d.Subtract(received) > temp)
             {
@@ -172,6 +177,19 @@ namespace Tracker
             }
             DateTime fault = new DateTime(2001, 1, 1);
             return fault;
+        }
+
+        [WebMethod]
+        public DataSet graphPlotting(int id)
+        {
+            con.Open();
+            SqlCommand cmd = new SqlCommand("select bloodPressure,readingDate from dbo.readings where id=@id order by readingDate asc", con);
+            cmd.Parameters.Add(new SqlParameter("@id", id));
+            SqlDataAdapter dA = new SqlDataAdapter();
+            dA.SelectCommand = cmd;
+            DataSet ds = new DataSet();
+            dA.Fill(ds);
+            return ds;
         }
     }
 }

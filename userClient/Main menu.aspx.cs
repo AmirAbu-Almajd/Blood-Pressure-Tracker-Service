@@ -20,16 +20,17 @@ namespace userClient
             DateTime fault = new DateTime(2001, 1, 1);
             DateTime latest = new DateTime();
             latest = obj.bpReminder(id);
-            if (latest!=fault)
+            if (latest != fault)
             {
                 warninglbl.Visible = true;
                 warninglbl.Text = warninglbl.Text + latest.ToString();
             }
+            graph.DataSource = obj.graphPlotting(id);
         }
 
         protected void view_Click(object sender, EventArgs e)
         {
-            Response.Redirect("personalInfo.aspx?param="+idtxt.Text);
+            Response.Redirect("personalInfo.aspx?param=" + idtxt.Text);
         }
 
         protected void update_Click(object sender, EventArgs e)
