@@ -17,7 +17,7 @@ namespace userClient
         protected void registerbtn_Click(object sender, EventArgs e)
         {
             CRUDservice.WebService1SoapClient obj = new CRUDservice.WebService1SoapClient();
-            obj.register(nametxt.Text, gendercmb.SelectedValue, int.Parse(agetxt.Text),gmailtxt.Text, float.Parse(weighttxt.Text), float.Parse(bptxt.Text), usernametxt.Text, passwordtxt.Text,float.Parse(heighttxt.Text));
+            obj.register(nametxt.Text, gendercmb.SelectedValue, int.Parse(agetxt.Text),gmailtxt.Text, float.Parse(weighttxt.Text), float.Parse(bptxt.Text), usernametxt.Text, passwordtxt.Text, float.Parse(heighttxt.Text));
             Response.Redirect("startWindow.aspx");
         }
     }

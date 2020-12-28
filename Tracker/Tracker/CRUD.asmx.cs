@@ -25,7 +25,7 @@ namespace Tracker
     {
         public static string projectMail = "tracker.Archi@gmail.com";
         public static string projectPass = "AASS4TEAM";
-        SqlConnection con = new SqlConnection("Data Source=DESKTOP-RIMF1UF\\SQLEXPRESS;Initial Catalog=master;Integrated Security=True");
+        SqlConnection con = new SqlConnection("Data Source=DESKTOP-CVRB3RF\\AMIRSQLSERVER;Initial Catalog=Tracker;Integrated Security=True");
         [WebMethod]
         public void register(string name, string gender, int age,string gmail, float weight, float blood_pressure
             , string username, string password, float height)

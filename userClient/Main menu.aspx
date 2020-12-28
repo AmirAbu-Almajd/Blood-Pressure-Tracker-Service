@@ -41,8 +41,7 @@
 
             <series>
 
-                <asp:Series ChartType="Line" Name="Series1" XValueMember="1" YValueMembers="0">
-
+                <asp:Series ChartType="line" Name="Series1" XValueMember="1" YValueMembers="0" BorderWidth = "2" Color="Red">
                 </asp:Series>
 
             </series>
