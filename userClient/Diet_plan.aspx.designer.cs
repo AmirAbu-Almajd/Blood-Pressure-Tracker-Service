@@ -11,7 +11,7 @@ namespace userClient
 {
 
 
-    public partial class Main_menu
+    public partial class Diet_plan
     {
 
         /// <summary>
@@ -24,75 +24,57 @@ namespace userClient
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// view control.
+        /// breakfast_txt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button view;
+        protected global::System.Web.UI.WebControls.Label breakfast_txt;
 
         /// <summary>
-        /// idtxt control.
+        /// lunch_txt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox idtxt;
+        protected global::System.Web.UI.WebControls.Label lunch_txt;
 
         /// <summary>
-        /// warninglbl control.
+        /// dinner_txt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label warninglbl;
+        protected global::System.Web.UI.WebControls.Label dinner_txt;
 
         /// <summary>
-        /// update control.
+        /// notes_txt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button update;
+        protected global::System.Web.UI.WebControls.Label notes_txt;
 
         /// <summary>
-        /// bptxt control.
+        /// sendbtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox bptxt;
+        protected global::System.Web.UI.WebControls.Button sendbtn;
 
         /// <summary>
-        /// graph control.
+        /// backbtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.DataVisualization.Charting.Chart graph;
-
-        /// <summary>
-        /// dietPlan control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button dietPlan;
-
-        /// <summary>
-        /// logoutbtn control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button logoutbtn;
+        protected global::System.Web.UI.WebControls.Button backbtn;
     }
 }

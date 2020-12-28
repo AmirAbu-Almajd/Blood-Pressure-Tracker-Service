@@ -56,6 +56,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
@@ -77,9 +78,25 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <Content Include="Diet_plan.aspx" />
     <Content Include="Main menu.aspx" />
     <Content Include="personalInfo.aspx" />
     <Content Include="registerationWindow.aspx" />
+    <None Include="Connected Services\CRUDservice\CRUD.wsdl" />
+    <Content Include="Connected Services\CRUDservice\userClient.CRUDservice.getDietPlanResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CRUDservice\userClient.CRUDservice.loginResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CRUDservice\userClient.CRUDservice.view_infoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Scripts\jquery-3.5.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.5.1.js" />
+    <Content Include="Scripts\jquery-3.5.1.min.js" />
+    <Content Include="Scripts\jquery-3.5.1.slim.js" />
+    <Content Include="Scripts\jquery-3.5.1.slim.min.js" />
     <Content Include="Web.config" />
     <Content Include="startWindow.aspx" />
   </ItemGroup>
@@ -88,6 +105,13 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Diet_plan.aspx.cs">
+      <DependentUpon>Diet_plan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Diet_plan.aspx.designer.cs">
+      <DependentUpon>Diet_plan.aspx</DependentUpon>
     </Compile>
     <Compile Include="Main menu.aspx.cs">
       <DependentUpon>Main menu.aspx</DependentUpon>
@@ -120,15 +144,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\CRUDservice\CRUD.wsdl" />
-    <Content Include="Connected Services\CRUDservice\userClient.CRUDservice.loginResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\CRUDservice\userClient.CRUDservice.view_infoResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <None Include="packages.config" />
     <Content Include="Properties\DataSources\System.Data.DataSet.datasource" />
+    <Content Include="Scripts\jquery-3.5.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.5.1.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

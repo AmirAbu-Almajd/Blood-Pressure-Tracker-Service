@@ -44,6 +44,12 @@
         </asp:Chart>
 
         </p>
+        <p>
+            <asp:Button ID="dietPlan" runat="server" OnClick="dietPlan_Click" Text="View diet plan" />
+        </p>
+        <p>
+            <asp:Button ID="logoutbtn" runat="server" OnClick="logoutbtn_Click" Text="Logout" />
+        </p>
     </form>
 </body>
 </html>

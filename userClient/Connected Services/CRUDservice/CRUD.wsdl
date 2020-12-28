@@ -8,10 +8,12 @@
             <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="gender" type="s:string" />
             <s:element minOccurs="1" maxOccurs="1" name="age" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="gmail" type="s:string" />
             <s:element minOccurs="1" maxOccurs="1" name="weight" type="s:float" />
             <s:element minOccurs="1" maxOccurs="1" name="blood_pressure" type="s:float" />
             <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="height" type="s:float" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -40,17 +42,21 @@
           <s:sequence>
             <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
             <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="gender" type="s:string" />
             <s:element minOccurs="1" maxOccurs="1" name="age" type="s:int" />
             <s:element minOccurs="1" maxOccurs="1" name="weight" type="s:float" />
-            <s:element minOccurs="1" maxOccurs="1" name="blood_pressure" type="s:float" />
             <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="height" type="s:float" />
+            <s:element minOccurs="0" maxOccurs="1" name="gmail" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
       <s:element name="update_infoResponse">
-        <s:complexType />
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="update_infoResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
       </s:element>
       <s:element name="view_info">
         <s:complexType>
@@ -63,6 +69,8 @@
             <s:element minOccurs="1" maxOccurs="1" name="blood_pressure" type="s:double" />
             <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="height" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="gmail" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -76,6 +84,8 @@
             <s:element minOccurs="1" maxOccurs="1" name="blood_pressure" type="s:double" />
             <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="height" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="gmail" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -125,6 +135,70 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="getLatestBP">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getLatestBPResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="getLatestBPResult" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDietPlan">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="range" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="breakfast" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lunch" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dinner" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="notes" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDietPlanResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="breakfast" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lunch" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dinner" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="notes" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getGmail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getGmailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getGmailResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="sendDietPlan">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userGmail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="mailBody" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="sendDietPlanResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="sendDietPlanResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="registerSoapIn">
@@ -169,6 +243,30 @@
   <wsdl:message name="graphPlottingSoapOut">
     <wsdl:part name="parameters" element="tns:graphPlottingResponse" />
   </wsdl:message>
+  <wsdl:message name="getLatestBPSoapIn">
+    <wsdl:part name="parameters" element="tns:getLatestBP" />
+  </wsdl:message>
+  <wsdl:message name="getLatestBPSoapOut">
+    <wsdl:part name="parameters" element="tns:getLatestBPResponse" />
+  </wsdl:message>
+  <wsdl:message name="getDietPlanSoapIn">
+    <wsdl:part name="parameters" element="tns:getDietPlan" />
+  </wsdl:message>
+  <wsdl:message name="getDietPlanSoapOut">
+    <wsdl:part name="parameters" element="tns:getDietPlanResponse" />
+  </wsdl:message>
+  <wsdl:message name="getGmailSoapIn">
+    <wsdl:part name="parameters" element="tns:getGmail" />
+  </wsdl:message>
+  <wsdl:message name="getGmailSoapOut">
+    <wsdl:part name="parameters" element="tns:getGmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="sendDietPlanSoapIn">
+    <wsdl:part name="parameters" element="tns:sendDietPlan" />
+  </wsdl:message>
+  <wsdl:message name="sendDietPlanSoapOut">
+    <wsdl:part name="parameters" element="tns:sendDietPlanResponse" />
+  </wsdl:message>
   <wsdl:portType name="WebService1Soap">
     <wsdl:operation name="register">
       <wsdl:input message="tns:registerSoapIn" />
@@ -197,6 +295,22 @@
     <wsdl:operation name="graphPlotting">
       <wsdl:input message="tns:graphPlottingSoapIn" />
       <wsdl:output message="tns:graphPlottingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getLatestBP">
+      <wsdl:input message="tns:getLatestBPSoapIn" />
+      <wsdl:output message="tns:getLatestBPSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getDietPlan">
+      <wsdl:input message="tns:getDietPlanSoapIn" />
+      <wsdl:output message="tns:getDietPlanSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getGmail">
+      <wsdl:input message="tns:getGmailSoapIn" />
+      <wsdl:output message="tns:getGmailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="sendDietPlan">
+      <wsdl:input message="tns:sendDietPlanSoapIn" />
+      <wsdl:output message="tns:sendDietPlanSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WebService1Soap" type="tns:WebService1Soap">
@@ -264,6 +378,42 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="getLatestBP">
+      <soap:operation soapAction="http://tempuri.org/getLatestBP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDietPlan">
+      <soap:operation soapAction="http://tempuri.org/getDietPlan" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getGmail">
+      <soap:operation soapAction="http://tempuri.org/getGmail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendDietPlan">
+      <soap:operation soapAction="http://tempuri.org/sendDietPlan" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="WebService1Soap12" type="tns:WebService1Soap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -323,6 +473,42 @@
     </wsdl:operation>
     <wsdl:operation name="graphPlotting">
       <soap12:operation soapAction="http://tempuri.org/graphPlotting" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLatestBP">
+      <soap12:operation soapAction="http://tempuri.org/getLatestBP" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDietPlan">
+      <soap12:operation soapAction="http://tempuri.org/getDietPlan" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getGmail">
+      <soap12:operation soapAction="http://tempuri.org/getGmail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendDietPlan">
+      <soap12:operation soapAction="http://tempuri.org/sendDietPlan" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

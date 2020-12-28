@@ -19,11 +19,21 @@
         <p>
             Weight<asp:TextBox ID="weighttxt" runat="server"></asp:TextBox>
         </p>
+        <p>
+        <asp:Label ID="Label1" runat="server" Text="Height(cm)"></asp:Label>
+        <asp:TextBox ID="heighttxt" runat="server"></asp:TextBox>
+        </p>
         Blood Pressure<asp:TextBox ID="bptxt" runat="server"></asp:TextBox>
+        <br />
+        <br />
+        <asp:Label ID="Label2" runat="server" Text="Gmail"></asp:Label>
+        <asp:TextBox ID="gmailtxt" runat="server"></asp:TextBox>
         <p>
             Username<asp:TextBox ID="usernametxt" runat="server"></asp:TextBox>
         </p>
         Password<asp:TextBox ID="passwordtxt" runat="server"></asp:TextBox>
+        <br />
+        <br />
         <p>
             <asp:Button ID="registerbtn" runat="server" OnClick="registerbtn_Click" Text="Register" />
         </p>

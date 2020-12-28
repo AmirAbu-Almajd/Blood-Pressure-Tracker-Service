@@ -11,6 +11,7 @@ namespace userClient
     {
         int id = 0;
         CRUDservice.WebService1SoapClient obj = new CRUDservice.WebService1SoapClient();
+        DateTime latest = new DateTime();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -18,7 +19,6 @@ namespace userClient
 
             id = int.Parse(Request.QueryString["param"]);
             DateTime fault = new DateTime(2001, 1, 1);
-            DateTime latest = new DateTime();
             latest = obj.bpReminder(id);
             if (latest != fault)
             {
@@ -36,7 +36,26 @@ namespace userClient
         protected void update_Click(object sender, EventArgs e)
         {
             obj.saveReading(id, float.Parse(bptxt.Text));
+            graph.DataSource = obj.graphPlotting(id);
             warninglbl.Visible = false;
+        }
+
+        protected void dietPlan_Click(object sender, EventArgs e)
+        {
+            double current = obj.getLatestBP(id);
+            string range;
+            if (current < 90)
+                range = "low";
+            else if (current < 150)
+                range = "normal";
+            else
+                range = "high";
+            Response.Redirect("Diet_plan.aspx?param=" + range + "&id="+id);
+        }
+
+        protected void logoutbtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("startWindow.aspx");
         }
     }
 }
