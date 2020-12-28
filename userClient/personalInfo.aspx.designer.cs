@@ -7,13 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace userClient
-{
-
-
-    public partial class personalInfo
-    {
-
+namespace userClient {
+    
+    
+    public partial class personalInfo {
+        
         /// <summary>
         /// form1 control.
         /// </summary>
@@ -22,7 +20,7 @@ namespace userClient
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-
+        
         /// <summary>
         /// Label1 control.
         /// </summary>
@@ -31,7 +29,7 @@ namespace userClient
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label1;
-
+        
         /// <summary>
         /// idtxt control.
         /// </summary>
@@ -40,7 +38,7 @@ namespace userClient
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox idtxt;
-
+        
         /// <summary>
         /// nametxt control.
         /// </summary>
@@ -49,7 +47,7 @@ namespace userClient
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox nametxt;
-
+        
         /// <summary>
         /// gendertxt control.
         /// </summary>
@@ -58,7 +56,7 @@ namespace userClient
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox gendertxt;
-
+        
         /// <summary>
         /// agetxt control.
         /// </summary>
@@ -67,7 +65,7 @@ namespace userClient
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox agetxt;
-
+        
         /// <summary>
         /// weighttxt control.
         /// </summary>
@@ -76,7 +74,7 @@ namespace userClient
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox weighttxt;
-
+        
         /// <summary>
         /// Label2 control.
         /// </summary>
@@ -85,7 +83,7 @@ namespace userClient
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label2;
-
+        
         /// <summary>
         /// Heighttxt control.
         /// </summary>
@@ -94,25 +92,7 @@ namespace userClient
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Heighttxt;
-
-        /// <summary>
-        /// Label3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
-
-        /// <summary>
-        /// bmilbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label bmilbl;
-
+        
         /// <summary>
         /// bptxt control.
         /// </summary>
@@ -121,16 +101,7 @@ namespace userClient
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox bptxt;
-
-        /// <summary>
-        /// category control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label category;
-
+        
         /// <summary>
         /// Label4 control.
         /// </summary>
@@ -139,7 +110,7 @@ namespace userClient
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label4;
-
+        
         /// <summary>
         /// gmailtxt control.
         /// </summary>
@@ -148,7 +119,7 @@ namespace userClient
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox gmailtxt;
-
+        
         /// <summary>
         /// usernametxt control.
         /// </summary>
@@ -157,7 +128,7 @@ namespace userClient
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox usernametxt;
-
+        
         /// <summary>
         /// passwordtxt control.
         /// </summary>
@@ -166,7 +137,34 @@ namespace userClient
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox passwordtxt;
-
+        
+        /// <summary>
+        /// Label3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label3;
+        
+        /// <summary>
+        /// bmilbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label bmilbl;
+        
+        /// <summary>
+        /// category control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label category;
+        
         /// <summary>
         /// update control.
         /// </summary>
@@ -175,14 +173,5 @@ namespace userClient
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button update;
-
-        /// <summary>
-        /// Backbtn control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Backbtn;
     }
 }

@@ -7,13 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace userClient
-{
-
-
-    public partial class WebForm1
-    {
-
+namespace userClient {
+    
+    
+    public partial class WebForm1 {
+        
         /// <summary>
         /// form1 control.
         /// </summary>
@@ -22,7 +20,7 @@ namespace userClient
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-
+        
         /// <summary>
         /// usernametxt control.
         /// </summary>
@@ -31,7 +29,7 @@ namespace userClient
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox usernametxt;
-
+        
         /// <summary>
         /// passwordtxt control.
         /// </summary>
@@ -40,7 +38,7 @@ namespace userClient
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox passwordtxt;
-
+        
         /// <summary>
         /// loginButton control.
         /// </summary>
@@ -49,7 +47,7 @@ namespace userClient
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button loginButton;
-
+        
         /// <summary>
         /// registerbtn control.
         /// </summary>

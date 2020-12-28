@@ -32,5 +32,10 @@ namespace userClient
         {
             Response.Redirect("registerationWindow.aspx");
         }
+
+        protected void passwordtxt_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -7,13 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace userClient
-{
-
-
-    public partial class Diet_plan
-    {
-
+namespace userClient {
+    
+    
+    public partial class Diet_plan {
+        
         /// <summary>
         /// form1 control.
         /// </summary>
@@ -22,7 +20,7 @@ namespace userClient
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-
+        
         /// <summary>
         /// breakfast_txt control.
         /// </summary>
@@ -31,7 +29,7 @@ namespace userClient
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label breakfast_txt;
-
+        
         /// <summary>
         /// lunch_txt control.
         /// </summary>
@@ -40,7 +38,7 @@ namespace userClient
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lunch_txt;
-
+        
         /// <summary>
         /// dinner_txt control.
         /// </summary>
@@ -49,7 +47,7 @@ namespace userClient
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label dinner_txt;
-
+        
         /// <summary>
         /// notes_txt control.
         /// </summary>
@@ -58,7 +56,7 @@ namespace userClient
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label notes_txt;
-
+        
         /// <summary>
         /// sendbtn control.
         /// </summary>
@@ -67,14 +65,5 @@ namespace userClient
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button sendbtn;
-
-        /// <summary>
-        /// backbtn control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button backbtn;
     }
 }
