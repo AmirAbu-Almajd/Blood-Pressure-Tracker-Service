@@ -27,19 +27,20 @@ namespace Tracker
         public static string projectPass = "AASS4TEAM";
         SqlConnection con = new SqlConnection("Data Source=DESKTOP-CVRB3RF\\AMIRSQLSERVER;Initial Catalog=Tracker;Integrated Security=True");
         [WebMethod]
-        public void register(string name, string gender, int age,string gmail, float weight, float blood_pressure
+        public void register(string name, string gender, int age,string gmail, float weight, float blood_pressureS, float blood_pressureD
             , string username, string password, float height)
         {
             con.Open();
             DateTime d = DateTime.Now;
-            SqlCommand cmd = new SqlCommand("insert into dbo.users(name,gender,age,weight,bloodPressure,username,password,height,gmail)" +
-                " values(@name,@gender,@age,@weight,@blood_pressure,@username,@password,@height,@gmail)", con);
+            SqlCommand cmd = new SqlCommand("insert into dbo.users(name,gender,age,weight,bloodPressureS,bloodPressureD,username,password,height,gmail)" +
+                " values(@name,@gender,@age,@weight,@blood_pressureS,@blood_pressureD,@username,@password,@height,@gmail)", con);
 
             SqlParameter p1 = new SqlParameter("@name", name);
             SqlParameter p2 = new SqlParameter("@gender", gender);
             SqlParameter p3 = new SqlParameter("@age", age);
             SqlParameter p4 = new SqlParameter("@weight", weight);
-            SqlParameter p5 = new SqlParameter("@blood_pressure", blood_pressure);
+            SqlParameter p5 = new SqlParameter("@blood_pressureS", blood_pressureS);
+            SqlParameter p10 = new SqlParameter("@blood_pressureD", blood_pressureD);
             SqlParameter p6 = new SqlParameter("@username", username);
             SqlParameter p7 = new SqlParameter("@password", password);
             SqlParameter p8 = new SqlParameter("@height", height);
@@ -53,6 +54,7 @@ namespace Tracker
             cmd.Parameters.Add(p7);
             cmd.Parameters.Add(p8);
             cmd.Parameters.Add(p9);
+            cmd.Parameters.Add(p10);
             cmd.ExecuteNonQuery();
             cmd = new SqlCommand("select id from dbo.users where username=@username;", con);
             cmd.Parameters.Add(new SqlParameter("@username", username));
@@ -66,9 +68,10 @@ namespace Tracker
                 }
             }
             reader.Close();
-            cmd=new SqlCommand("insert into dbo.readings (id , bloodPressure,readingDate) values (@id,@blood_pressure,@d);", con);
+            cmd=new SqlCommand("insert into dbo.readings (id , bloodPressureS,bloodPressureD,readingDate) values (@id,@blood_pressureS,@blood_pressureD,@d);", con);
             cmd.Parameters.Add(new SqlParameter("@id", id));
-            cmd.Parameters.Add(new SqlParameter("@blood_pressure", blood_pressure));
+            cmd.Parameters.Add(new SqlParameter("@blood_pressureS", blood_pressureS));
+            cmd.Parameters.Add(new SqlParameter("@blood_pressureD", blood_pressureD));
             cmd.Parameters.Add(new SqlParameter("@d", d));
             cmd.ExecuteNonQuery();
             con.Close();
@@ -134,11 +137,11 @@ namespace Tracker
             
         }
         [WebMethod]
-        public void view_info(int id, ref string name, ref string gender, ref int age, ref double weight, ref double blood_pressure
+        public void view_info(int id, ref string name, ref string gender, ref int age, ref double weight 
             , ref string username, ref string password,ref double height,ref string gmail)
         {
             con.Open();
-            SqlCommand cmd = new SqlCommand("select name,gender,age,weight,bloodPressure,username , password,height,gmail from dbo.users where id=@id;", con);
+            SqlCommand cmd = new SqlCommand("select name,gender,age,weight,username , password,height,gmail from dbo.users where id=@id;", con);
             SqlParameter p8 = new SqlParameter("@id", id);
             cmd.Parameters.Add(p8);
             SqlDataReader reader = cmd.ExecuteReader();
@@ -150,11 +153,10 @@ namespace Tracker
                     gender = reader.GetString(1);
                     age = reader.GetInt32(2);
                     weight = Convert.ToDouble(reader["weight"]);
-                    blood_pressure = Convert.ToDouble(reader["bloodPressure"]);
-                    username = reader.GetString(5);
-                    password = reader.GetString(6);
+                    username = reader.GetString(4);
+                    password = reader.GetString(5);
                     height = Convert.ToDouble(reader["height"]);
-                    gmail = reader.GetString(8);
+                    gmail = reader.GetString(7);
                 }
 
             }
@@ -162,13 +164,14 @@ namespace Tracker
         }
 
         [WebMethod]
-        public void saveReading(int id, float blood_pressure)
+        public void saveReading(int id, float blood_pressureS , float blood_pressureD)
         {
             con.Open();
             DateTime d = DateTime.Now;
-            SqlCommand cmd = new SqlCommand("insert into dbo.readings (id , bloodPressure,readingDate) values (@id,@blood_pressure,@d);", con);
+            SqlCommand cmd = new SqlCommand("insert into dbo.readings (id , bloodPressureS,bloodPressureD,readingDate) values (@id,@blood_pressureS,@blood_pressureD,@d);", con);
             cmd.Parameters.Add(new SqlParameter("@id", id));
-            cmd.Parameters.Add(new SqlParameter("@blood_pressure", blood_pressure));
+            cmd.Parameters.Add(new SqlParameter("@blood_pressureS", blood_pressureS));
+            cmd.Parameters.Add(new SqlParameter("@blood_pressureD", blood_pressureD));
             cmd.Parameters.Add(new SqlParameter("@d", d));
             cmd.ExecuteNonQuery();
             con.Close();
@@ -190,7 +193,7 @@ namespace Tracker
                 }
             }
             con.Close();
-            TimeSpan temp = new TimeSpan(0, 0, 20, 0);
+            TimeSpan temp = new TimeSpan(0, 0, 1, 0);
             if (d.Subtract(received) > temp)
             {
                 return received;
@@ -203,7 +206,7 @@ namespace Tracker
         public DataSet graphPlotting(int id)
         {
             con.Open();
-            SqlCommand cmd = new SqlCommand("select bloodPressure,readingDate from dbo.readings where id=@id order by readingDate asc", con);
+            SqlCommand cmd = new SqlCommand("select bloodPressureS,bloodPressureD,readingDate from dbo.readings where id=@id order by readingDate asc", con);
             cmd.Parameters.Add(new SqlParameter("@id", id));
             SqlDataAdapter dA = new SqlDataAdapter();
             dA.SelectCommand = cmd;
@@ -212,22 +215,21 @@ namespace Tracker
             return ds;
         }
         [WebMethod]
-        public double getLatestBP(int id)
+        public void getLatestBP(int id,ref double bpd,ref double bps)
         {
             con.Open();
-            SqlCommand cmd = new SqlCommand("select bloodPressure from dbo.readings where readingDate = (select MAX(readingDate) from dbo.readings where id = @id);", con);
+            SqlCommand cmd = new SqlCommand("select bloodPressures , bloodPressureD from dbo.readings where readingDate = (select MAX(readingDate) from dbo.readings where id = @id);", con);
             cmd.Parameters.Add(new SqlParameter("@id", id));
             SqlDataReader rd = cmd.ExecuteReader();
-            double current_bp=0;
             if (rd.HasRows)
             {
                 while (rd.Read())
                 {
-                    current_bp = Convert.ToDouble(rd["bloodPressure"]);
+                    bps = Convert.ToDouble(rd["bloodPressureS"]);
+                    bpd = Convert.ToDouble(rd["bloodPressureD"]);
                 }
             }
             con.Close();
-            return current_bp;
         }
         [WebMethod]
         public void getDietPlan(string range,ref string breakfast,ref string lunch,ref string dinner,ref string notes)

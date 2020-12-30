@@ -11,6 +11,7 @@ namespace userClient
     {
         int id = 0;
         CRUDservice.WebService1SoapClient obj = new CRUDservice.WebService1SoapClient();
+        double bps = 0, bpd = 0;
         DateTime latest = new DateTime();
 
         protected void Page_Load(object sender, EventArgs e)
@@ -35,18 +36,18 @@ namespace userClient
 
         protected void update_Click(object sender, EventArgs e)
         {
-            obj.saveReading(id, float.Parse(bptxt.Text));
+            obj.saveReading(id, float.Parse(bpstxt.Text),float.Parse(bpdtxt.Text));
             graph.DataSource = obj.graphPlotting(id);
             warninglbl.Visible = false;
         }
 
         protected void dietPlan_Click(object sender, EventArgs e)
         {
-            double current = obj.getLatestBP(id);
+            obj.getLatestBP(id,ref bpd,ref bps);
             string range;
-            if (current < 90)
+            if (bps < 100&&bpd<70)
                 range = "low";
-            else if (current < 150)
+            else if (bps < 140 && bpd<90)
                 range = "normal";
             else
                 range = "high";

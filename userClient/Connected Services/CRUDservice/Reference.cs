@@ -18,10 +18,10 @@ namespace userClient.CRUDservice {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/register", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        void register(string name, string gender, int age, string gmail, float weight, float blood_pressure, string username, string password, float height);
+        void register(string name, string gender, int age, string gmail, float weight, float blood_pressureS, float blood_pressureD, string username, string password, float height);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/register", ReplyAction="*")]
-        System.Threading.Tasks.Task registerAsync(string name, string gender, int age, string gmail, float weight, float blood_pressure, string username, string password, float height);
+        System.Threading.Tasks.Task registerAsync(string name, string gender, int age, string gmail, float weight, float blood_pressureS, float blood_pressureD, string username, string password, float height);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/login", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -48,10 +48,10 @@ namespace userClient.CRUDservice {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/saveReading", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        void saveReading(int id, float blood_pressure);
+        void saveReading(int id, float blood_pressureS, float blood_pressureD);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/saveReading", ReplyAction="*")]
-        System.Threading.Tasks.Task saveReadingAsync(int id, float blood_pressure);
+        System.Threading.Tasks.Task saveReadingAsync(int id, float blood_pressureS, float blood_pressureD);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/bpReminder", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -69,10 +69,11 @@ namespace userClient.CRUDservice {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/getLatestBP", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        double getLatestBP(int id);
+        userClient.CRUDservice.getLatestBPResponse getLatestBP(userClient.CRUDservice.getLatestBPRequest request);
         
+        // CODEGEN: Generating message contract since the operation has multiple return values.
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/getLatestBP", ReplyAction="*")]
-        System.Threading.Tasks.Task<double> getLatestBPAsync(int id);
+        System.Threading.Tasks.Task<userClient.CRUDservice.getLatestBPResponse> getLatestBPAsync(userClient.CRUDservice.getLatestBPRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/getDietPlan", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -162,30 +163,26 @@ namespace userClient.CRUDservice {
         public double weight;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=5)]
-        public double blood_pressure;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=6)]
         public string username;
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=7)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=6)]
         public string password;
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=8)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=7)]
         public double height;
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=9)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=8)]
         public string gmail;
         
         public view_infoRequest() {
         }
         
-        public view_infoRequest(int id, string name, string gender, int age, double weight, double blood_pressure, string username, string password, double height, string gmail) {
+        public view_infoRequest(int id, string name, string gender, int age, double weight, string username, string password, double height, string gmail) {
             this.id = id;
             this.name = name;
             this.gender = gender;
             this.age = age;
             this.weight = weight;
-            this.blood_pressure = blood_pressure;
             this.username = username;
             this.password = password;
             this.height = height;
@@ -211,33 +208,73 @@ namespace userClient.CRUDservice {
         public double weight;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=4)]
-        public double blood_pressure;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=5)]
         public string username;
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=6)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=5)]
         public string password;
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=7)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=6)]
         public double height;
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=8)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=7)]
         public string gmail;
         
         public view_infoResponse() {
         }
         
-        public view_infoResponse(string name, string gender, int age, double weight, double blood_pressure, string username, string password, double height, string gmail) {
+        public view_infoResponse(string name, string gender, int age, double weight, string username, string password, double height, string gmail) {
             this.name = name;
             this.gender = gender;
             this.age = age;
             this.weight = weight;
-            this.blood_pressure = blood_pressure;
             this.username = username;
             this.password = password;
             this.height = height;
             this.gmail = gmail;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="getLatestBP", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class getLatestBPRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public int id;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public double bpd;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
+        public double bps;
+        
+        public getLatestBPRequest() {
+        }
+        
+        public getLatestBPRequest(int id, double bpd, double bps) {
+            this.id = id;
+            this.bpd = bpd;
+            this.bps = bps;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="getLatestBPResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class getLatestBPResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public double bpd;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public double bps;
+        
+        public getLatestBPResponse() {
+        }
+        
+        public getLatestBPResponse(double bpd, double bps) {
+            this.bpd = bpd;
+            this.bps = bps;
         }
     }
     
@@ -328,12 +365,12 @@ namespace userClient.CRUDservice {
                 base(binding, remoteAddress) {
         }
         
-        public void register(string name, string gender, int age, string gmail, float weight, float blood_pressure, string username, string password, float height) {
-            base.Channel.register(name, gender, age, gmail, weight, blood_pressure, username, password, height);
+        public void register(string name, string gender, int age, string gmail, float weight, float blood_pressureS, float blood_pressureD, string username, string password, float height) {
+            base.Channel.register(name, gender, age, gmail, weight, blood_pressureS, blood_pressureD, username, password, height);
         }
         
-        public System.Threading.Tasks.Task registerAsync(string name, string gender, int age, string gmail, float weight, float blood_pressure, string username, string password, float height) {
-            return base.Channel.registerAsync(name, gender, age, gmail, weight, blood_pressure, username, password, height);
+        public System.Threading.Tasks.Task registerAsync(string name, string gender, int age, string gmail, float weight, float blood_pressureS, float blood_pressureD, string username, string password, float height) {
+            return base.Channel.registerAsync(name, gender, age, gmail, weight, blood_pressureS, blood_pressureD, username, password, height);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -368,14 +405,13 @@ namespace userClient.CRUDservice {
             return base.Channel.view_info(request);
         }
         
-        public void view_info(int id, ref string name, ref string gender, ref int age, ref double weight, ref double blood_pressure, ref string username, ref string password, ref double height, ref string gmail) {
+        public void view_info(int id, ref string name, ref string gender, ref int age, ref double weight, ref string username, ref string password, ref double height, ref string gmail) {
             userClient.CRUDservice.view_infoRequest inValue = new userClient.CRUDservice.view_infoRequest();
             inValue.id = id;
             inValue.name = name;
             inValue.gender = gender;
             inValue.age = age;
             inValue.weight = weight;
-            inValue.blood_pressure = blood_pressure;
             inValue.username = username;
             inValue.password = password;
             inValue.height = height;
@@ -385,7 +421,6 @@ namespace userClient.CRUDservice {
             gender = retVal.gender;
             age = retVal.age;
             weight = retVal.weight;
-            blood_pressure = retVal.blood_pressure;
             username = retVal.username;
             password = retVal.password;
             height = retVal.height;
@@ -396,12 +431,12 @@ namespace userClient.CRUDservice {
             return base.Channel.view_infoAsync(request);
         }
         
-        public void saveReading(int id, float blood_pressure) {
-            base.Channel.saveReading(id, blood_pressure);
+        public void saveReading(int id, float blood_pressureS, float blood_pressureD) {
+            base.Channel.saveReading(id, blood_pressureS, blood_pressureD);
         }
         
-        public System.Threading.Tasks.Task saveReadingAsync(int id, float blood_pressure) {
-            return base.Channel.saveReadingAsync(id, blood_pressure);
+        public System.Threading.Tasks.Task saveReadingAsync(int id, float blood_pressureS, float blood_pressureD) {
+            return base.Channel.saveReadingAsync(id, blood_pressureS, blood_pressureD);
         }
         
         public System.DateTime bpReminder(int id) {
@@ -420,12 +455,23 @@ namespace userClient.CRUDservice {
             return base.Channel.graphPlottingAsync(id);
         }
         
-        public double getLatestBP(int id) {
-            return base.Channel.getLatestBP(id);
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        userClient.CRUDservice.getLatestBPResponse userClient.CRUDservice.WebService1Soap.getLatestBP(userClient.CRUDservice.getLatestBPRequest request) {
+            return base.Channel.getLatestBP(request);
         }
         
-        public System.Threading.Tasks.Task<double> getLatestBPAsync(int id) {
-            return base.Channel.getLatestBPAsync(id);
+        public void getLatestBP(int id, ref double bpd, ref double bps) {
+            userClient.CRUDservice.getLatestBPRequest inValue = new userClient.CRUDservice.getLatestBPRequest();
+            inValue.id = id;
+            inValue.bpd = bpd;
+            inValue.bps = bps;
+            userClient.CRUDservice.getLatestBPResponse retVal = ((userClient.CRUDservice.WebService1Soap)(this)).getLatestBP(inValue);
+            bpd = retVal.bpd;
+            bps = retVal.bps;
+        }
+        
+        public System.Threading.Tasks.Task<userClient.CRUDservice.getLatestBPResponse> getLatestBPAsync(userClient.CRUDservice.getLatestBPRequest request) {
+            return base.Channel.getLatestBPAsync(request);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]

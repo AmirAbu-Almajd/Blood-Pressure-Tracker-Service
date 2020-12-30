@@ -29,8 +29,9 @@
             <asp:Label style="color:red" ID="warninglbl" runat="server" Text="You need to update your blood pressure reading - lastest reading since " Visible="False"></asp:Label>
         &nbsp;&nbsp;
         </p>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
-            <asp:TextBox ID="bptxt" runat="server"></asp:TextBox>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="bpstxt" runat="server"></asp:TextBox>
+        &nbsp; /&nbsp;&nbsp;&nbsp;<asp:TextBox ID="bpdtxt" runat="server"></asp:TextBox>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Button style="border-radius: 10px;" BackColor="Black" BorderStyle="Ridge" Height="39px" Font-Size="Large" ForeColor="White" ID="update" runat="server" Text="Update Blood Pressure" OnClick="update_Click" />
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
         <br />
@@ -41,8 +42,15 @@
 
             <series>
 
-                <asp:Series ChartType="line" Name="Series1" XValueMember="1" YValueMembers="0" BorderWidth = "2" Color="Red">
+                <asp:Series ChartType="line" Name="Series1" XValueMember="2" YValueMembers="0" BorderWidth = "2" Color="Red">
                 </asp:Series>
+                
+
+
+                <asp:Series ChartArea="ChartArea1" ChartType="Line" Name="Series2" XValueMember="2" YValueMembers="1" BorderWidth = "2" Color="Blue">
+                </asp:Series>
+                
+
 
             </series>
 

@@ -38,8 +38,6 @@
             &nbsp;</p>
         <p style="font-weight: bold; font-size: x-large">
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        Blood Pressure&nbsp; <asp:TextBox ID="bptxt" runat="server"></asp:TextBox>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:Label ID="Label4" runat="server" Text="Gmail"></asp:Label>
             &nbsp;
             <asp:TextBox ID="gmailtxt" runat="server"></asp:TextBox>

@@ -29,17 +29,15 @@ namespace userClient
 
                 idtxt.Enabled = false;
                 gendertxt.Enabled = false;
-                bptxt.Enabled = false;
                 id = int.Parse(Request.QueryString["param"]);
                 idtxt.Text = id.ToString();
-                obj.view_info(id, ref name, ref gender, ref age, ref weight, ref blood_pressure, ref username, ref password, ref height,ref gmail);
+                obj.view_info(id, ref name, ref gender, ref age, ref weight, ref username, ref password, ref height,ref gmail);
                 nametxt.Text = name;
                 usernametxt.Text = username;
                 passwordtxt.Text = password;
                 gendertxt.Text = gender;
                 weighttxt.Text = weight.ToString();
                 agetxt.Text = age.ToString();
-                bptxt.Text = blood_pressure.ToString();
                 gmailtxt.Text = gmail;
                 Heighttxt.Text = height.ToString();
                 bmilbl.Text = calculateBMI(weight, height).ToString();
@@ -53,14 +51,13 @@ namespace userClient
             bool res = obj.update_info(id, nametxt.Text, int.Parse(agetxt.Text), float.Parse(weighttxt.Text), usernametxt.Text, passwordtxt.Text, float.Parse(Heighttxt.Text),gmailtxt.Text);
             if(res)
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "scriptkey", "Your information has been updated");
-            obj.view_info(id, ref name, ref gender, ref age, ref weight, ref blood_pressure, ref username, ref password, ref height,ref gmail);
+            obj.view_info(id, ref name, ref gender, ref age, ref weight, ref username, ref password, ref height,ref gmail);
             nametxt.Text = name;
             usernametxt.Text = username;
             passwordtxt.Text = password;
             gendertxt.Text = gender;
             weighttxt.Text = weight.ToString();
             agetxt.Text = age.ToString();
-            bptxt.Text = blood_pressure.ToString();
             gmailtxt.Text = gmail;
             bmilbl.Text = calculateBMI(weight, height).ToString();
 

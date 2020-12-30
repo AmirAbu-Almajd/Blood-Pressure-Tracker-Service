@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace userClient {
-    
-    
-    public partial class Main_menu {
-        
+namespace userClient
+{
+
+
+    public partial class Main_menu
+    {
+
         /// <summary>
         /// form1 control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace userClient {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-        
+
         /// <summary>
         /// idtxt control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace userClient {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox idtxt;
-        
+
         /// <summary>
         /// view control.
         /// </summary>
@@ -38,7 +40,7 @@ namespace userClient {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button view;
-        
+
         /// <summary>
         /// dietPlan control.
         /// </summary>
@@ -47,7 +49,7 @@ namespace userClient {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button dietPlan;
-        
+
         /// <summary>
         /// logoutbtn control.
         /// </summary>
@@ -56,7 +58,7 @@ namespace userClient {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button logoutbtn;
-        
+
         /// <summary>
         /// warninglbl control.
         /// </summary>
@@ -65,16 +67,25 @@ namespace userClient {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label warninglbl;
-        
+
         /// <summary>
-        /// bptxt control.
+        /// bpstxt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox bptxt;
-        
+        protected global::System.Web.UI.WebControls.TextBox bpstxt;
+
+        /// <summary>
+        /// bpdtxt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox bpdtxt;
+
         /// <summary>
         /// update control.
         /// </summary>
@@ -83,7 +94,7 @@ namespace userClient {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button update;
-        
+
         /// <summary>
         /// graph control.
         /// </summary>
